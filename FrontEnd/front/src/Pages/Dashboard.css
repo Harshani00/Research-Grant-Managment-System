@@ -1,0 +1,18 @@
+.dashboard-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+    padding: 2%;
+    width: 40%;
+    background-color:white;
+    margin-left: 32%;
+    
+
+  }
+  
+  .custom-card {
+    width: 500px; /* Adjust the width */
+    height: 110px;
+    margin-bottom: 20px; /* Space between cards */
+  }
+  
+  

@@ -1,0 +1,47 @@
+.card-header {
+    background-color: #1B2D48;
+    color: #ffff;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+  }
+  
+  .custom-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-10px); /* Moves the card up slightly */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for the popup effect */
+  }
+  
+  .custom-button {
+    background-color: black;
+    border-color: black;
+    color: white;
+    outline: none; /* Prevents default blue outline */
+    width: 100px;
+  }
+  
+  .custom-button:focus,
+  .custom-button:hover {
+    background-color: #333;
+    border-color: #333;
+    color: white;
+    outline: none; /* Ensures no outline on focus */
+    box-shadow: none; /* Removes any box shadow */
+  }
+  
+  .custom-button:active,
+  .custom-button:focus:active {
+    background-color: #222; /* Slightly darker shade for active state */
+    border-color: #222;
+    color: white;
+    outline: none; /* Prevents default blue outline */
+    box-shadow: none; /* Ensures no box shadow on active */
+  }
+  
