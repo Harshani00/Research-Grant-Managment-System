@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Logo from '../Assests/Img1.png'
+import Logo from '../Assets/Img1.png'
+
+
 
 const Navbar = () => (
+  <div>
+   
   <div className="nav-bar-container">
     <div className="nav-left">
        <img src={Logo} alt="Logo" className="Logo" /> 
@@ -21,6 +25,7 @@ const Navbar = () => (
         <Link to="/signout">Sign Out</Link>
       </button>
     </div>
+  </div>
   </div>
 );
 

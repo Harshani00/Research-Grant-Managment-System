@@ -23,5 +23,28 @@
     padding: 5px 10px; /* Adjusts padding for a smaller placeholder */
     min-width: 300px; /* Sets a minimum width to avoid the select box becoming too small */
   }
+  .form-success {
+    border-color: #28a745; /* Green border for success */
+  }
+  
+  .form-success-text {
+    color: #28a745; /* Green color for success tick */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0.5em;
+  }
+  .savebutton {
+    background-color: #052659;
+    border-color: #052659;
+    color: white;
+  }
+  
+  .savebutton:focus,
+  .savebutton:hover {
+    background-color: #005b96;
+    border-color: #005b96; 
+    color: white;
+  }
+  
   
   

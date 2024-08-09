@@ -13,7 +13,10 @@ export default function Navbar2() {
           <Nav>
             <li className="nav-item"><Link to="/grant" className="nav-link">Profile</Link></li>
             <li className="nav-item"><Link to="/project" className="nav-link">Projects</Link></li>
-            <Nav.Link href="#funds">Funds</Nav.Link>
+            <li className="nav-item"><Link to="/supervisors" className="nav-link">Supervisors</Link></li>
+            <li className="nav-item"><Link to="/uploads" className="nav-link">Uploads</Link></li>
+           
+
           </Nav>
         </Navbar.Collapse>
       </Container>
