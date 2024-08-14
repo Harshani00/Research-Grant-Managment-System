@@ -233,11 +233,13 @@ const SignupForm = () => {
                         isInvalid={!!errors.role}
                     >
                         <option value="">Select your role</option>
+                        <option value="urc">Director - URC </option>
                         <option value="Dean">Dean</option>
                         <option value="HOD">Head of the Department</option>
                         <option value="reviewer">Reviewer</option>
                         <option value="Applicant">Applicant</option>
                         <option value="Admin">Admin</option>
+                        
                     </Form.Select>
                     <Form.Control.Feedback type="invalid">{errors.role}</Form.Control.Feedback>
                 </Form.Group>

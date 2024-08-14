@@ -1,7 +1,7 @@
 .sidebar {
   position: fixed;
   left: -250px; /* Start hidden */
-  top: 10px; /* Move the sidebar 50px down from the top of the page */
+  top: 100px; /* Move the sidebar 50px down from the top of the page */
   width: 250px;
   height: 100%;
   background-color: white;
@@ -48,8 +48,8 @@
   position: absolute;
   
   left: 250px; /* Place button to the right of the sidebar */
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   padding: 20px;
   cursor: pointer;
@@ -58,7 +58,7 @@
 }
 
 .toggle-button:hover {
-  background-color: black;
+  background-color: white;
 }
 
 /* Adjust for smaller screens */

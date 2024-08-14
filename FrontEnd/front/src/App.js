@@ -10,6 +10,11 @@ import Signup from './Pages/Signup';
 import Sidebar from './Components/Sidebar';
 import Supervisors from  './Pages/Supervisors';
 import Uploads from './Pages/Uploads';
+import Reviewers from './Pages/Reviewers';
+import Budget from './Pages/Budget';
+import Progress from './Pages/Progress';
+import Report from './Pages/Report';
+
 
 
 class App extends Component {
@@ -23,9 +28,14 @@ class App extends Component {
           <Route path="/project" element={<Project/>} />
           <Route path="/supervisors" element={<Supervisors/>} />
           <Route path="/uploads" element={<Uploads/>} />
+          <Route path="/reviewers" element={<Reviewers/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/sidebar" element={<Sidebar/>} />
+          <Route path="/budget" element={<Budget/>} />
+          <Route path="/progress" element={<Progress/>} />
+          <Route path="/report" element={<Report/>} />
+         
 
 
           

@@ -6,8 +6,19 @@ import './Grant.css'; // Import the CSS file
 import Navbar from '../Components/Navbar';
 import Sidebar from '../Components/Sidebar';
 import Navbar2 from '../Components/Navbar2';
+import { useNavigate } from 'react-router-dom';
 
 export default function Grant() {
+
+  const navigate = useNavigate();
+  const handleNext = () => {
+    navigate('/reviewers'); // Navigate to Supervisors page
+  };
+
+  const handlePrevious = () => {
+    navigate('/supervisors'); // Navigate to Profile page
+  };   
+
   return (
     <div>
       <Navbar />
@@ -42,6 +53,9 @@ export default function Grant() {
           <Button variant="primary" type="submit" className='savebutton'>
             Save
           </Button>
+          <Button variant="primary" onClick={handlePrevious} type="submit" className='previousbutton'>Previous</Button>
+          <Button variant="primary" onClick={handleNext} type="submit" className='nextbutton'>Next</Button>
+          
         </Form>
       </div>
     </div>

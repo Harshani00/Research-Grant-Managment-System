@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import './Signup.css'; // Import the CSS file if needed
 import backgroundImage from '../Assets/img6.png';
 
+
 export default function LoginForm() {
   const [formData, setFormData] = useState({
     username: '',
@@ -52,6 +53,9 @@ export default function LoginForm() {
     } catch (error) {
       alert('There was an error submitting the form. Please try again.');
     }
+  };
+  const handleSignupRedirect = () => {
+    navigate('/signup'); // Navigate to the login page
   };
 
   return (
@@ -110,6 +114,7 @@ export default function LoginForm() {
               isInvalid={!!errors.role}
             >
               <option value="" disabled>Select your role</option>
+              <option value="urc">Director - URC </option>
               <option value="Dean">Dean</option>
               <option value="HOD">Head of the Department</option>
               <option value="reviewer">Reviewer</option>
@@ -132,6 +137,7 @@ export default function LoginForm() {
             name="remember"
             className="cbox"
           />
+           <p className="mt-3">Don't have an Account? <Button variant="link" onClick={handleSignupRedirect} >SignUp Here</Button></p>
         </div>
       </div>
     </div>

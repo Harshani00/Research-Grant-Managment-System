@@ -1,15 +1,23 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import './Grant.css'; // Import the CSS file
 import Navbar from '../Components/Navbar';
-//import Sidebar from '../Components/Sidebar';
 import Navbar2 from '../Components/Navbar2';
 import Sidebar from '../Components/Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Grant() {
+  const navigate = useNavigate();
+  const handleNext = () => {
+    navigate('/uploads'); // Navigate to Supervisors page
+  };
+
+  const handlePrevious = () => {
+    navigate('/project'); // Navigate to Profile page
+  };
+
   return (
     <div>
       <Navbar />
@@ -47,12 +55,14 @@ export default function Grant() {
             </Form.Group>
             </Row>
 
-            
-
 
           <Button variant="primary" type="submit" className='savebutton'>
             Save
           </Button>
+
+          <Button variant="primary" onClick={handlePrevious} type="submit" className='previousbutton'>Previous</Button>
+          <Button variant="primary" onClick={handleNext} type="submit" className='nextbutton'>Next</Button>
+          
         </Form>
       </div>
     </div>

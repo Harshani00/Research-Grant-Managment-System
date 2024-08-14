@@ -15,9 +15,9 @@ export default function Dashboard() {
       
       <div className="dashboard-container">
         <CustomCard title="Apply New Grant" buttonText="Apply" linkTo="/grant" />
-        <CustomCard title="Apply Budget Revision" buttonText="Apply" linkTo="/budget-revision" />
-        <CustomCard title="Submit Progress Report" buttonText="Submit" linkTo="/progress-report" />
-        <CustomCard title="Submit Final Report" buttonText="Submit" linkTo="/final-report" />
+        <CustomCard title="Apply Budget Revision" buttonText="Apply" linkTo="/budget" />
+        <CustomCard title="Submit Progress Report" buttonText="Submit" linkTo="/progress" />
+        <CustomCard title="Submit Final Report" buttonText="Submit" linkTo="/report" />
       </div>
     </div>
   );

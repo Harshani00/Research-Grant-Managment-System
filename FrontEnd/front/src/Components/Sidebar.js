@@ -120,7 +120,76 @@
 // };
 
 // export default Sidebar;
+// import React, { useState } from 'react';
+// import './Sidebar.css'; 
+// import { Link } from 'react-router-dom';
 
+// const Sidebar = () => {
+//   const [completedSteps, setCompletedSteps] = useState({
+//     profile: false,
+//     project: false,
+//     proposal: false,
+//     budget: false,
+//     supervisor: false,
+//     principal: false,
+//     cosupervisor: false,
+//   });
+
+//   const completeStep = (step) => {
+//     setCompletedSteps(prevState => ({ ...prevState, [step]: true }));
+//   };
+
+//   return (
+//     <div className="sidebar">
+//       <ul className="sidebar-menu">
+//         <li>
+//           <div className={`step-circle ${completedSteps.profile ? 'completed' : ''}`}>
+//             {completedSteps.profile && '✓'}
+//           </div>
+//           <Link to="/profile" onClick={() => completeStep('profile')}>Profile Details</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.project ? 'completed' : ''}`}>
+//             {completedSteps.project && '✓'}
+//           </div>
+//           <Link to="#project" onClick={() => completeStep('project')}>Project Details</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.proposal ? 'completed' : ''}`}>
+//             {completedSteps.proposal && '✓'}
+//           </div>
+//           <Link to="#proposal" onClick={() => completeStep('proposal')}>PDF of Project Proposal</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.budget ? 'completed' : ''}`}>
+//             {completedSteps.budget && '✓'}
+//           </div>
+//           <Link to="#budget" onClick={() => completeStep('budget')}>PDF of Budget</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.supervisor ? 'completed' : ''}`}>
+//             {completedSteps.supervisor && '✓'}
+//           </div>
+//           <Link to="/supervisor" onClick={() => completeStep('supervisor')}>Supervisor Details</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.principal ? 'completed' : ''}`}>
+//             {completedSteps.principal && '✓'}
+//           </div>
+//           <Link to="#principal" onClick={() => completeStep('principal')}>CV of the Principal Investigator</Link>
+//         </li>
+//         <li>
+//           <div className={`step-circle ${completedSteps.cosupervisor ? 'completed' : ''}`}>
+//             {completedSteps.cosupervisor && '✓'}
+//           </div>
+//           <Link to="#cosupervisor" onClick={() => completeStep('cosupervisor')}>CV of the Co Supervisor</Link>
+//         </li>
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default Sidebar;
 import React, { useState } from 'react';
 import './Sidebar.css'; // Import the CSS file for styling
 import { Link } from 'react-router-dom';

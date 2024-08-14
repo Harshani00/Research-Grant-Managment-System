@@ -18,5 +18,11 @@
     text-decoration: none; /* Keep underline removed on hover */
   }
   
-  /* Optional: Adjust Navbar padding if needed */
+  .nav-link.active {
+    background-color: #555; /* Highlight color */
+    color: white !important; /* Text color */
+    font-weight: bold; /* Bold text */
+    border-radius: 8px;
+  }
+  
   
