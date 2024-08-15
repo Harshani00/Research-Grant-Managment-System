@@ -13,6 +13,8 @@ function DragAndDrop() {
     acceptedFiles: acceptedFiles3
   } = useDropzone();
 
+  
+
  
   const files3 = acceptedFiles3.map(file => (
     <li key={file.path}>
@@ -20,6 +22,12 @@ function DragAndDrop() {
     </li>
   ));
 
+  const handleSubmit = () => {
+    // Handle form submission logic here
+    console.log('Form submitted');
+  };
+
+  
  
 
   return (
@@ -39,9 +47,13 @@ function DragAndDrop() {
           <ul>{files3}</ul>
         </aside>
       </Card>
+      <div >
+        <Button variant="success" onClick={handleSubmit} className='submitbutton'>Submit</Button>
+      </div>
+    </div>
 
      
-    </div>
+    
   );
 }
 

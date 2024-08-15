@@ -1,4 +1,7 @@
+
+
 // import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -13,6 +16,9 @@
 //   const [grantRows, setGrantRows] = useState([
 //     { fundingSource: '', duration: '', currency: '', amount: '' },
 //   ]);
+
+//   const navigate = useNavigate(); // Initialize useNavigate
+  
 
 //   const handleAddRow = () => {
 //     setGrantRows([...grantRows, { fundingSource: '', duration: '', currency: '', amount: '' }]);
@@ -29,13 +35,20 @@
 //     setGrantRows(newGrantRows);
 //   };
 
+//   const handleNext = () => {
+//     navigate('/supervisors'); // Navigate to Supervisors page
+//   };
+
+//   const handlePrevious = () => {
+//     navigate('/grant'); // Navigate to Profile page
+//   };
 
 //   return (
 //     <div>
 //       <Navbar />
 //       <Navbar2 />
 //       <Sidebar />
-      
+
 //       <div className="form-container">
 //         <Form>
 //           <Row className="mb-3">
@@ -138,8 +151,8 @@
 //           <Button variant="primary" type="submit" className='savebutton'>
 //             Save
 //           </Button>
-//           <Button variant="primary" type="submit" className='previousbutton'>Previous</Button>
-//           <Button variant="primary" type="submit" className='nextbutton'>Next</Button>
+//           <Button variant="primary" onClick={handlePrevious} className='previousbutton'>Previous</Button>
+//           <Button variant="primary" onClick={handleNext} className='nextbutton'>Next</Button>
 //         </Form>
 //       </div>
 //     </div>
@@ -156,18 +169,22 @@ import './Grant.css'; // Import the CSS file
 import Navbar from '../Components/Navbar';
 import Navbar2 from '../Components/Navbar2';
 import Sidebar from '../Components/Sidebar';
+import { useForm } from './MainForm';
 
 export default function Grant() {
+  const { formData, handleFormDataChange } = useForm(); // Destructure formData and handleFormDataChange from useForm
   const [grantRows, setGrantRows] = useState([
     { fundingSource: '', duration: '', currency: '', amount: '' },
   ]);
 
   const navigate = useNavigate(); // Initialize useNavigate
 
+  // Function to add a new row to the grant table
   const handleAddRow = () => {
     setGrantRows([...grantRows, { fundingSource: '', duration: '', currency: '', amount: '' }]);
   };
 
+  // Function to handle input changes in the dynamic rows
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newGrantRows = grantRows.map((row, i) => {
@@ -177,14 +194,17 @@ export default function Grant() {
       return row;
     });
     setGrantRows(newGrantRows);
+    handleFormDataChange({ [name]: value }); // Update the central form data
   };
 
+  // Function to navigate to the next page
   const handleNext = () => {
     navigate('/supervisors'); // Navigate to Supervisors page
   };
 
+  // Function to navigate to the previous page
   const handlePrevious = () => {
-    navigate('/grant'); // Navigate to Profile page
+    navigate('/grant'); // Update this path to the correct previous page
   };
 
   return (
@@ -198,7 +218,14 @@ export default function Grant() {
           <Row className="mb-3">
             <Form.Label>1. Project Title</Form.Label>
             <Form.Group as={Col} controlId="formGridTitle">
-              <Form.Control as="textarea" rows={3} placeholder="" />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder=""
+                name="projectTitle"
+                value={formData.projectTitle || ''}
+                onChange={(e) => handleFormDataChange({ projectTitle: e.target.value })}
+              />
             </Form.Group>
           </Row>
 
@@ -228,7 +255,7 @@ export default function Grant() {
               <Col>
                 <Form.Control
                   name="duration"
-                  value={row.duration}
+                  value={row.durationperiod}
                   onChange={(e) => handleChange(index, e)}
                   placeholder="Ex: 01/01/2012-31/12/2012"
                 />
@@ -265,7 +292,9 @@ export default function Grant() {
                     type="radio"
                     label="Yes"
                     name="projectInvolved"
-                    id="formHorizontalRadiosYes"
+                    value="yes"
+                    checked={formData.projectInvolved === 'yes'}
+                    onChange={(e) => handleFormDataChange({ projectInvolved: e.target.value })}
                   />
                 </Col>
                 <Col xs={6}>
@@ -273,7 +302,9 @@ export default function Grant() {
                     type="radio"
                     label="No"
                     name="projectInvolved"
-                    id="formHorizontalRadiosNo"
+                    value="no"
+                    checked={formData.projectInvolved === 'no'}
+                    onChange={(e) => handleFormDataChange({ projectInvolved: e.target.value })}
                   />
                 </Col>
               </Row>
@@ -284,11 +315,26 @@ export default function Grant() {
             <Form.Label>4. Please list 3 of your recent publications (provide links related to the publications).</Form.Label>
             <Form.Group as={Col} controlId="formGridPublications">
               <Form.Label>Link 1</Form.Label>
-              <Form.Control placeholder="" />
+              <Form.Control
+                placeholder=""
+                name="publication1"
+                value={formData.publication1 || ''}
+                onChange={(e) => handleFormDataChange({ publication1: e.target.value })}
+              />
               <Form.Label>Link 2</Form.Label>
-              <Form.Control placeholder="" />
+              <Form.Control
+                placeholder=""
+                name="publication2"
+                value={formData.publication2 || ''}
+                onChange={(e) => handleFormDataChange({ publication2: e.target.value })}
+              />
               <Form.Label>Link 3</Form.Label>
-              <Form.Control placeholder="" />
+              <Form.Control
+                placeholder=""
+                name="publication3"
+                value={formData.publication3 || ''}
+                onChange={(e) => handleFormDataChange({ publication3: e.target.value })}
+              />
             </Form.Group>
           </Row>
 

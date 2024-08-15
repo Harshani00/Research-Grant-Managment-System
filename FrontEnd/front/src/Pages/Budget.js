@@ -150,6 +150,11 @@ function DragAndDrop() {
     </li>
   ));
 
+  const handleSubmit = () => {
+    // Handle form submission logic here
+    console.log('Form submitted');
+  };
+
   return (
     <div>
       <Navbar />
@@ -182,6 +187,10 @@ function DragAndDrop() {
           <ul>{files2}</ul>
         </aside>
       </Card>
+
+      <div >
+        <Button variant="success" onClick={handleSubmit} className='submitbutton'>Submit</Button>
+      </div>
     </div>
   );
 }
