@@ -4,11 +4,12 @@
     padding: 2%;
     width: 40%;
     background-color:white;
-    margin-left: 25%;
+    margin-left: 12%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(3, 1fr); /* Two columns */
     gap: 20px; /* Adjust the gap between cards as needed */
     justify-items: center; /* Center the cards horizontally in each cell */
+    margin-top: 100px;
   }
   
   .custom-card {

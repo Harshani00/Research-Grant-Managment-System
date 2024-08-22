@@ -19,8 +19,16 @@ function DragAndDrop() {
     acceptedFiles: acceptedFiles5
   } = useDropzone();
 
+  const {
+    getRootProps: getRootProps3,
+    getInputProps: getInputProps3,
+    acceptedFiles: acceptedFiles3
+  } = useDropzone();
+
+  
+
  
-  const files3 = acceptedFiles4.map(file => (
+  const files4 = acceptedFiles4.map(file => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
@@ -31,6 +39,13 @@ function DragAndDrop() {
       {file.path} - {file.size} bytes
     </li>
   ));
+
+  const files3 = acceptedFiles3.map(file => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
+
 
   const handleSubmit = () => {
     // Handle form submission logic here
@@ -51,7 +66,7 @@ function DragAndDrop() {
         </div>
         <aside>
           <h6>Files:</h6>
-          <ul>{files3}</ul>
+          <ul>{files4}</ul>
         </aside>
       </Card>
 
@@ -69,6 +84,23 @@ function DragAndDrop() {
           <ul>{files5}</ul>
         </aside>
       </Card>
+
+      <div className="label-container4">
+        <Form.Label>1. Upload Final Report</Form.Label>
+      </div>
+      <Card className="dropzone-container">
+        <div {...getRootProps3({ className: 'dropzone' })}>
+          <input {...getInputProps3()} />
+          <p>Drag & drop some files here, or click to select files</p>
+          <Button variant="primary">Browse Files</Button>
+        </div>
+        <aside>
+          <h6>Files:</h6>
+          <ul>{files3}</ul>
+        </aside>
+      </Card>
+      
+
       <div >
         <Button variant="success" onClick={handleSubmit} className='submitbutton'>Submit</Button>
       </div>

@@ -69,8 +69,7 @@ import Progress from './Pages/Progress';
 import Report from './Pages/Report';
 import Home from './Pages/Home';
 
-// Director Pages
-import DashboardDirector  from './PagesDirectorURC/DashboardDirector';
+
 
 
 class App extends React.Component {
@@ -94,7 +93,7 @@ class App extends React.Component {
             <Route path="/progress" element={<Progress />} />
             <Route path="/report" element={<Report />} />
 
-            <Route path="ddashboard" element={<DashboardDirector />} />
+            
             
           </Routes>
         </BrowserRouter>

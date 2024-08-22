@@ -165,9 +165,13 @@ const SignupForm = () => {
                 role: '',
                 password: ''
             });
-        } catch (error) {
+            navigate('/login'); // Navigate to the login page after successful signup
+             } 
+             
+             catch (error) {
             alert('There was an error submitting the form. Please try again.');
         }
+        
 
         
     };
@@ -272,7 +276,7 @@ const SignupForm = () => {
                     </Form.Group>
 
                     <Button variant="primary" type="submit" className='button1'>
-                        Submit
+                        Sign Up
                     </Button>
                 </Form>
 

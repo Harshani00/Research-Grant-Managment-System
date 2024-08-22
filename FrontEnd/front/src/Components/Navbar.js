@@ -1,93 +1,143 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import Logo from '../Assets/Img1.png';
-
-const Navbar = () => (
-  <div>
-    <div className="nav-bar-container">
-      <div className="nav-left">
-        <img src={Logo} alt="Logo" className="Logo" />
-      </div>
-
-      <div className="nav-center">
-        <h1 className="main-title">RESEARCH GRANT MANAGEMENT SYSTEM</h1>
-      </div>
-
-      <div className="nav-right">
-        <button className="nav-button dashboard-button">
-          <Link to="/dashboard">Dashboard</Link>
-        </button>
-        <button className="nav-button profile-button">
-          <Link to="/profile">Profile</Link>
-        </button>
-        <button className="nav-button logout-button">
-          <Link to="/signout">Sign Out</Link>
-        </button>
-      </div>
-    </div>
-  </div>
-);
-
-export default Navbar;
-
 // import React from 'react';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 // import { Link } from 'react-router-dom';
 // import './Navbar.css';
 // import Logo from '../Assets/Img1.png';
 
-// function BasicExample() {
+// const Navbar = () => (
+//   <div>
+//     <div className="nav-bar-container">
+//       <div className="nav-left">
+//         <img src={Logo} alt="Logo" className="Logo" />
+//       </div>
+
+//       <div className="nav-center">
+//         <h1 className="main-title">RESEARCH GRANT MANAGEMENT SYSTEM</h1>
+//       </div>
+
+//       <div className="nav-right">
+//         <button className="nav-button dashboard-button">
+//           <Link to="/dashboard">Dashboard</Link>
+//         </button>
+//         <button className="nav-button profile-button">
+//           <Link to="/profile">Profile</Link>
+//         </button>
+//         <button className="nav-button logout-button">
+//           <Link to="/logout">Log Out</Link>
+//         </button>
+//       </div>
+//     </div>
+//   </div>
+// );
+
+// export default Navbar;
+
+
+// import React from 'react';
+// import { Link, useNavigate } from 'react-router-dom';
+// import './Navbar.css';
+// import Logo from '../Assets/Img1.png';
+
+// const Navbar = () => {
+//   const navigate = useNavigate();
+
+//   const handleLogout = async () => {
+//     try {
+//       // Call the logout endpoint
+//       const response = await fetch('http://localhost:8080/test/Logout.php', { method: 'GET' });
+//       const result = await response.json();
+      
+//       if (result.message === 'Logged out successfully') {
+//         // Redirect to login page
+//         navigate('/login');
+//       } else {
+//         // Handle error
+//         console.error('Logout failed:', result.message);
+//       }
+//     } catch (error) {
+//       console.error('Error during logout:', error);
+//     }
+//   };
+
 //   return (
-//     <Navbar expand="lg" className="bg-body-tertiary">
-//       <Container>
-//         {/* Logo on the left */}
-//         <Navbar.Brand href="#home">
+//     <div>
+//       <div className="nav-bar-container">
+//         <div className="nav-left">
 //           <img src={Logo} alt="Logo" className="Logo" />
-//         </Navbar.Brand>
+//         </div>
 
-//         {/* Navbar toggler for mobile view */}
-//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//         <Navbar.Collapse id="basic-navbar-nav">
-//           <Nav className="me-auto">
-//             {/* Navigation links */}
-//             <Nav.Link as={Link} to="/home">Home</Nav.Link>
-//             <Nav.Link as={Link} to="/link">Link</Nav.Link>
+//         <div className="nav-center">
+//           <h1 className="main-title">RESEARCH GRANT MANAGEMENT SYSTEM</h1>
+//         </div>
 
-//             {/* Dropdown menu */}
-//             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-//               <NavDropdown.Item as={Link} to="#action/3.1">Action</NavDropdown.Item>
-//               <NavDropdown.Item as={Link} to="#action/3.2">Another action</NavDropdown.Item>
-//               <NavDropdown.Item as={Link} to="#action/3.3">Something</NavDropdown.Item>
-//               <NavDropdown.Divider />
-//               <NavDropdown.Item as={Link} to="#action/3.4">Separated link</NavDropdown.Item>
-//             </NavDropdown>
-//           </Nav>
-
-//           {/* Centered title */}
-//           <div className="nav-center">
-//             <h1 className="main-title">RESEARCH GRANT MANAGEMENT SYSTEM</h1>
-//           </div>
-
-//           {/* Right-aligned buttons */}
-//           <Nav className="ml-auto">
-//             <button className="nav-button dashboard-button">
-//               <Link to="/dashboard">Dashboard</Link>
-//             </button>
-//             <button className="nav-button profile-button">
-//               <Link to="/profile">Profile</Link>
-//             </button>
-//             <button className="nav-button logout-button">
-//               <Link to="/signout">Sign Out</Link>
-//             </button>
-//           </Nav>
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar>
+//         <div className="nav-right">
+//           <button className="nav-button dashboard-button">
+//             <Link to="/dashboard">Dashboard</Link>
+//           </button>
+//           <button className="nav-button profile-button">
+//             <Link to="/profile">Profile</Link>
+//           </button>
+//           <button className="nav-button logout-button" onClick={handleLogout}>
+//             Log Out
+//           </button>
+//         </div>
+//       </div>
+//     </div>
 //   );
-// }
+// };
 
-// export default BasicExample;
+// export default Navbar;
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
+import Logo from '../Assets/Img1.png';
+
+const Navbar = () => {
+  const navigate = useNavigate();
+  const userName = localStorage.getItem('userName') || 'Profile'; // Get username from localStorage
+
+  const handleLogout = async () => {
+    try {
+
+      const response = await fetch('http://localhost:8080/test/Logout.php', { method: 'GET' });
+      const result = await response.json();
+      
+      if (result.message === 'Logged out successfully') {
+        localStorage.removeItem('userName'); // Clear username from localStorage
+        localStorage.removeItem('userRole'); // Store user role in localStorage
+        navigate('/login');
+      } else {
+        console.error('Logout failed:', result.message);
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
+
+  return (
+    <div>
+      <div className="nav-bar-container">
+        <div className="nav-left">
+          <img src={Logo} alt="Logo" className="Logo" />
+        </div>
+
+        <div className="nav-center">
+          <h1 className="main-title">RESEARCH GRANT MANAGEMENT SYSTEM</h1>
+        </div>
+
+        <div className="nav-right">
+          <button className="nav-button dashboard-button">
+            <Link to="/dashboard">Dashboard</Link>
+          </button>
+          <button className="nav-button profile-button">
+            <Link to="/profile">{userName}</Link> {/* Show username or "Profile" */}
+          </button>
+          <button className="nav-button logout-button" onClick={handleLogout}>
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
