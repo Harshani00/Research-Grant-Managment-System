@@ -11,6 +11,7 @@
   text-align: center;
   overflow: hidden; /* Ensures content doesn’t overflow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+
 }
 
 .custom-card:hover {
@@ -38,8 +39,10 @@
 
 .card-title {
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+ 
 }
 
 
@@ -54,6 +57,8 @@
   padding: 10px;
   border-radius: 5px;
   max-width: 90%;
+
+  
   
 }
 

@@ -18,4 +18,39 @@
     margin-bottom: 20px; /* Space between cards */
   
   }
+/* Dashboard.css */
+
+/* Custom styles for the dropdown menu */
+.dropdown-menu {
+  background-color: rgba(255, 255, 255); /* White with some transparency */
+  border: none; /* Remove border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect for a glassmorphism style */
+}
+
+/* Adjusting dropdown item styles */
+.dropdown-item {
+  color: black; /* Darker text color */
+}
+
+.dropdown-item:hover {
+  background-color:gray; /* Light blue hover effect */
   
+}
+
+
+#dropdown-basic-button {
+  background-color: transparent; /* Transparent button */
+  border: 1px solid #ccc; /* Light border */
+  color: white; /* Text color */
+  font-weight:bold;
+  
+
+}
+
+#dropdown-basic-button:hover,
+#dropdown-basic-button:focus {
+  
+  color:white; /* Darker text color */
+}
+

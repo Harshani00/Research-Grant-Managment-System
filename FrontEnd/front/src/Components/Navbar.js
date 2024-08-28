@@ -104,6 +104,8 @@ const Navbar = () => {
       if (result.message === 'Logged out successfully') {
         localStorage.removeItem('userName'); // Clear username from localStorage
         localStorage.removeItem('userRole'); // Store user role in localStorage
+        localStorage.removeItem('userID'); // Store user role in localStorage
+
         navigate('/login');
       } else {
         console.error('Logout failed:', result.message);

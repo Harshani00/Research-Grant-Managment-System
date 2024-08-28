@@ -61,16 +61,42 @@
 //     </Card>
 //   );
 // }
+
+
+// import React from 'react';
+// import { Card } from 'react-bootstrap';
+// import { useNavigate } from 'react-router-dom';
+// import './CustomCard.css';
+
+// export default function CustomCard({ title, linkTo, imageSrc, hoverText }) {
+//   const navigate = useNavigate();
+
+//   const handleClick = () => {
+//     navigate(linkTo);
+//   };
+
+//   return (
+//     <Card className="custom-card" style={{ backgroundImage: `url(${imageSrc})` }} onClick={handleClick}>
+//       <div className="card-overlay">
+//         <Card.Header className="card-title">{title}</Card.Header>
+//         <div className="card-hover-text">{hoverText}</div>
+//       </div>
+//     </Card>
+//   );
+// }
+
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './CustomCard.css';
 
-export default function CustomCard({ title, linkTo, imageSrc, hoverText }) {
+export default function CustomCard({ title, linkTo, imageSrc, hoverText, children }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(linkTo);
+    if (!children) {
+      navigate(linkTo);
+    }
   };
 
   return (
@@ -78,6 +104,7 @@ export default function CustomCard({ title, linkTo, imageSrc, hoverText }) {
       <div className="card-overlay">
         <Card.Header className="card-title">{title}</Card.Header>
         <div className="card-hover-text">{hoverText}</div>
+        {children}
       </div>
     </Card>
   );

@@ -1,0 +1,18 @@
+.dropdown-row {
+    padding: 10px 0;
+  }
+  
+  .dropdown-row label {
+    margin-right: 40px; /* Space between the label and the dropdown */
+    font-weight: bold;
+  }
+  
+  .dropdown-row select {
+    margin-right: 20px; /* Space between the two dropdowns */
+  }
+  
+  table {
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  

@@ -353,7 +353,6 @@ export default function Grant() {
   const validateForm = () => {
     const newErrors = {};
 
-    // Validation checks for each field
     if (!formData.title) newErrors.title = 'Title is required';
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.faculty) newErrors.faculty = 'Faculty is required';
@@ -368,40 +367,50 @@ export default function Grant() {
     if (!formData.start_date) newErrors.start_date = 'Start Date is required';
     if (!formData.duration) newErrors.duration = 'Duration is required';
 
-    return newErrors;
+    setErrors(newErrors);
+    
+    // If no errors, return true, otherwise return false
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-  
-    try {
-      const response = await axios.post('http://localhost:8080/test/Grant.php', formData, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        transformRequest: [(data) => {
-          const params = new URLSearchParams();
-          for (const key in data) {
-            params.append(key, data[key]);
-          }
-          return params;
-        }],
-      });
-      alert(response.data);
-      setSubmitted(true); // Set form as submitted
-    } catch (error) {
-      alert('There was an error submitting the form. Please try again.');
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+      try {
+        const response = await axios.post('http://localhost:8080/test/Grant.php', formData, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          transformRequest: [(data) => {
+            const params = new URLSearchParams();
+            for (const key in data) {
+              params.append(key, data[key]);
+            }
+            return params;
+          }],
+        });
+
+        if (response.data === "Form submitted successfully!") {
+          setSubmitted(true); // Set form as submitted only on success
+          alert(response.data);
+        } else {
+          alert('Form submission failed. Please try again.');
+        }
+      } catch (error) {
+        alert('There was an error submitting the form. Please try again.');
+      }
     }
   };
 
   const handleNext = (e) => {
     e.preventDefault();
-    navigate('/project'); // Navigate to the "project" page
+    
+    if (validateForm()) {
+      navigate('/project'); // Navigate to the "project" page
+    } else {
+      alert('Missing Fields Required.');
+    }
   };
   
   return (

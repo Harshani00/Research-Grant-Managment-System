@@ -65,9 +65,17 @@ import Supervisors from  './Pages/Supervisors';
 import Uploads from './Pages/Uploads';
 import Reviewers from './Pages/Reviewers';
 import Budget from './Pages/Budget';
-import Progress from './Pages/Progress';
-import Report from './Pages/Report';
 import Home from './Pages/Home';
+import MidReport from './Pages/MidReport';
+import EndReport from './Pages/EndReport';
+import FinalReport from './Pages/FinalReport';
+import SubmittedGrant from './Pages/SubmittedGrant';
+ 
+// URC Secretary Pages
+import ViewApplication from './Pages/Secretary/ViewApplication';
+
+// import Progress from './Pages/Progress';
+// import Report from './Pages/Report';
 
 
 
@@ -90,8 +98,17 @@ class App extends React.Component {
             <Route path="/signup" element={<Signup />} />
             <Route path="/sidebar" element={<Sidebar />} />
             <Route path="/budget" element={<Budget />} />
-            <Route path="/progress" element={<Progress />} />
-            <Route path="/report" element={<Report />} />
+            <Route path="/midreport" element={<MidReport />} />
+            <Route path="/endreport" element={<EndReport />} /> 
+            <Route path="/finalreport" element={<FinalReport />} />
+            <Route path="/submittedgrant" element={<SubmittedGrant />} />
+
+            <Route path="/viewapplication" element={<ViewApplication />} />
+
+
+
+
+            
 
             
             

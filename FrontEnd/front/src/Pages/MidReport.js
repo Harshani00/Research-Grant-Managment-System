@@ -34,7 +34,7 @@ function DragAndDrop() {
     <div>
       <Navbar />
       <div className="label-container4">
-        <Form.Label>1. Upload Final Report</Form.Label>
+        <Form.Label>1. Upload Mid Year Report</Form.Label>
       </div>
       <Card className="dropzone-container">
         <div {...getRootProps3({ className: 'dropzone' })}>
